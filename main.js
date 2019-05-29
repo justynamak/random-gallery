@@ -2,7 +2,7 @@
 const gallery = document.querySelector(".gallery");
 const options = [...document.querySelectorAll(".gallery__item")];
 const btn = document.querySelector(".gallery__btn-random");
-
+const limit = 200;
 let amount = 6;
 let photosApi;
 let photos = [];
@@ -29,8 +29,12 @@ const effect = function(element, show, time) {
 };
 const randomPhoto = function() {
   let index = Math.floor(Math.random() * (photosApi.length - 1));
-  if (photos.includes(photosApi[index])) randomPhoto();
-  else return index;
+
+  if (photos.includes(photosApi[index])) {
+    return randomPhoto();
+  } else {
+    return index;
+  }
 };
 
 const chooseOption = function() {
@@ -69,7 +73,7 @@ const generateHtml = function(photos) {
 
 const createGallery = function() {
   photos = [];
-  fetch("https://picsum.photos/v2/list?page=2&limit=400")
+  fetch(`https://picsum.photos/v2/list?page=2&limit=${limit}`)
     .then(response => response.json())
     .then(json => {
       photosApi = [...json];
@@ -86,7 +90,6 @@ const zoomPhoto = function(e) {
   const photoZoom = photos.find(photo => photo.id === datasetId);
 
   if (isInPage(".wrapper") && !isInPage(".zoom")) {
-    console.log("zoom");
     if (e.target.classList.contains("gallery__img")) {
       const html = `
       <div class="zoom">
@@ -121,7 +124,6 @@ const slidePhotos = function(e) {
       let nextIndex = ++currentIndex;
       if (nextIndex >= photos.length - 1) nextIndex = 0;
       const nextPhoto = photos[nextIndex];
-      console.log(nextPhoto, nextIndex);
       const html = `
       <div class="zoom active">
         <img class="zoom__photo" src="${nextPhoto.download_url}" data-id="${
