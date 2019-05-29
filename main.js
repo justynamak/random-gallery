@@ -1,4 +1,3 @@
-//  <img src="http://unsplash.it/400/400">
 const gallery = document.querySelector(".gallery");
 const options = [...document.querySelectorAll(".gallery__item")];
 const btn = document.querySelector(".gallery__btn-random");
