@@ -2,10 +2,11 @@
 <a href="https://justynamak.github.io/random-gallery/">Demo</a>
 
 Random gallery is a simple application that generates your photo gallery. Choose the number of photos and generate!
+<h2>Technologies used:</h2>
+<ul>
+    <li>HTML5</li>
+    <li>CSS3</li>
+    <li>JAVA SCRIPT (ES6, fetchAPI)</li>    
+</ul>
 
-Technologies used:
--HTML5
--CSS3
--JAVA SCRIPT (ES6, fetchAPI)
-
-Free API from the site was used: <a link href="https://picsum.photos/">Unsplash </a>
+Free API from the site: <a link href="https://picsum.photos/">Unsplash </a>
